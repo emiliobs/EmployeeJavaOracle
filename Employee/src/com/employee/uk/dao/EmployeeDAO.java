@@ -23,17 +23,18 @@ public class EmployeeDAO
     {
         PreparedStatement preparedStatement = null;
         String sql = "INSERT INTO  Employee (Employee_Id, name,last_name, document_number, marital_status, gender, age) "
-                + "VALUES(Employee_SEQ.NEXTVAL,?,?,?,?,?,?)";
+                + "VALUES(?,?,?,?,?,?,?)";
 
         try
         {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, employee.getName());
-            preparedStatement.setString(2, employee.getLast_Name());
-            preparedStatement.setString(3, employee.getDocument_Number());
-            preparedStatement.setString(4, employee.getMarital_Status() +"");
-            preparedStatement.setString(5, employee.getGender() + "");
-            preparedStatement.setInt(6, employee.getAge());
+            preparedStatement.setInt(1, employee.getEmployee_Id());
+            preparedStatement.setString(2, employee.getName());
+            preparedStatement.setString(3, employee.getLast_Name());
+            preparedStatement.setString(4, employee.getDocument_Number());
+            preparedStatement.setString(5, employee.getMarital_Status() +"");
+            preparedStatement.setString(6, employee.getGender() + "");
+            preparedStatement.setInt(7, employee.getAge());
             
             message = "Saved Successfully.";
             
@@ -137,4 +138,32 @@ public class EmployeeDAO
         }
     }
 
+    public  int getMaxID(Connection connection)
+    {
+        int id = 0;
+        
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        
+        String sql = "Select MAX(Employee_Id)+1 from employee";
+        
+        try
+        {
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+            {
+                id = resultSet.getInt(1);
+            }
+            resultSet.close();
+            preparedStatement.close();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Error To Displaying Id: " + e.getMessage());
+        }
+        
+        return id;
+    }
+    
 }

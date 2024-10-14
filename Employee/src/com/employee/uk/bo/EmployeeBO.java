@@ -15,22 +15,21 @@ import javax.swing.JTable;
  */
 public class EmployeeBO
 {
-    private String message =  "";
-   private EmployeeDAO employeeDAO;
-   Connection connection;    
-   
+
+    private String message = "";
+    private EmployeeDAO employeeDAO;
+    Connection connection;
 
     public EmployeeBO()
     {
         employeeDAO = new EmployeeDAO();
-        
+
     }
-    
-      
-    public  String AddEmployee( Employee employee)
+
+    public String AddEmployee(Employee employee)
     {
         connection = ConnectionDB.getConnection();
-        
+
         try
         {
             message = employeeDAO.AddEmployee(connection, employee);
@@ -42,7 +41,7 @@ public class EmployeeBO
         }
         finally
         {
-             try
+            try
             {
                 if (connection != null)
                 {
@@ -54,14 +53,14 @@ public class EmployeeBO
                 message = message + "  " + e.getMessage();
             }
         }
-               
+
         return message;
     }
-    
-     public  String EditEmployee( Employee employee)
+
+    public String EditEmployee(Employee employee)
     {
         connection = ConnectionDB.getConnection();
-        
+
         try
         {
             message = employeeDAO.EditEmployee(connection, employee);
@@ -73,7 +72,7 @@ public class EmployeeBO
         }
         finally
         {
-             try
+            try
             {
                 if (connection != null)
                 {
@@ -85,14 +84,14 @@ public class EmployeeBO
                 message = message + "  " + e.getMessage();
             }
         }
-               
+
         return message;
     }
-     
-      public  String DeleteEmployee( int id)
+
+    public String DeleteEmployee(int id)
     {
         connection = ConnectionDB.getConnection();
-        
+
         try
         {
             message = employeeDAO.DeleteEmployee(connection, id);
@@ -104,7 +103,7 @@ public class EmployeeBO
         }
         finally
         {
-             try
+            try
             {
                 if (connection != null)
                 {
@@ -116,24 +115,42 @@ public class EmployeeBO
                 message = message + "  " + e.getMessage();
             }
         }
-               
+
         return message;
     }
-      
-       public  void EmployeeList(JTable table)
+
+    public void EmployeeList(JTable table)
     {
         connection = ConnectionDB.getConnection();
         employeeDAO.EmployeeList(connection, table);
-               
-       try
-      {
-            
-        connection.close();
-       }
-       catch (SQLException ex)
-       {
-           System.out.println("Error: " + ex.getMessage());
-       }
+
+        try
+        {
+
+            connection.close();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+    public  int getMaxID()
+    {
+         connection = ConnectionDB.getConnection();
+        int id = employeeDAO.getMaxID(connection);
+
+        try
+        {
+
+            connection.close();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        
+        return id;
     }
     
 }

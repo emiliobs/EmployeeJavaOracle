@@ -53,11 +53,11 @@ public class ConnectionDB
              }
          }
          
-         public static void main(String[] args)
-    {
-        ConnectionDB connectionDB = new ConnectionDB();
-        connectionDB. getConnection();
-        
-    }
+//         public static void main(String[] args)
+//    {
+//        ConnectionDB connectionDB = new ConnectionDB();
+//        connectionDB. getConnection();
+//        
+//    }
     
 }

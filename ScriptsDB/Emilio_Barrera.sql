@@ -14,3 +14,6 @@ ALTER TABLE Employee ADD CONSTRAINT Employee_Id_PK PRIMARY KEY(Employee_Id);
 
 SELECT * FROM employee;
 SELECT * FROM employee ORDER BY employee_id;
+SELECT MAX(Employee_Id) from employee;
+SELECT employee_seq.currval+1 from employee;
+

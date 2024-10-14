@@ -56,12 +56,12 @@ public class Test
         System.out.println(message);
     }
 
-    public static void main(String[] args)
-    {
-        Test test = new Test();
-        //test.Insert();
-        //test.Edit();
-        test.Delete();
-    }
+//    public static void main(String[] args)
+//    {
+//        Test test = new Test();
+//        //test.Insert();
+//        //test.Edit();
+//        test.Delete();
+//    }
 
 }
