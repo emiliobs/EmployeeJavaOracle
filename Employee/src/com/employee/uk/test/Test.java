@@ -24,12 +24,12 @@ public class Test
 //     employee.setGender('M');
 //     employee.setAge(50);
       
-       employee.setName("Deal");
-     employee.setLast_Name("Pool");
-     employee.setDocument_Number("123457");
+       employee.setName("Delete me");
+     employee.setLast_Name("delete me");
+     employee.setDocument_Number("00000");
      employee.setMarital_Status('M');
      employee.setGender('F');
-     employee.setAge(55);
+     employee.setAge(00);
      
      message = employeeBO.AddEmployee(employee);
       System.out.println(message);    
@@ -50,11 +50,19 @@ public class Test
       System.out.println(message);    
   }
   
+  public  void Delete()
+  {
+                 
+     message = employeeBO.DeleteEmployee(4);
+      System.out.println(message);    
+  }
+  
     public static void main(String[] args)
     {
         Test test = new Test();
-       // test.Insert();
-       test.Edit();
+       //test.Insert();
+       //test.Edit();
+       test.Delete();
     }
  
    
