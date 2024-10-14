@@ -1,6 +1,7 @@
 package com.employee.uk.bo;
 
 import com.employee.uk.dao.EmployeeDAO;
+import com.employee.uk.db.ConnectionDB;
 import com.employee.uk.entity.Employee;
 import java.sql.Connection;
 
@@ -11,25 +12,43 @@ import java.sql.Connection;
 public class EmployeeBO
 {
     private String message =  "";
-    
-    private EmployeeDAO employeeDAO;
+   private EmployeeDAO employeeDAO;
+   Connection connection;    
+   
 
     public EmployeeBO()
     {
         employeeDAO = new EmployeeDAO();
+        
     }
     
-    
-    
+      
     public  String AddEmployee( Employee employee)
     {
+        connection = ConnectionDB.getConnection();
+        
         try
         {
-            
+            message = employeeDAO.AddEmployee(connection, employee);
+            //connection.rollback();
         }
         catch (Exception e)
         {
             message = message + " " + e.getMessage();
+        }
+        finally
+        {
+             try
+            {
+                if (connection != null)
+                {
+                    connection.close();
+                }
+            }
+            catch (Exception e)
+            {
+                message = message + "  " + e.getMessage();
+            }
         }
                
         return message;
@@ -37,15 +56,63 @@ public class EmployeeBO
     
      public  String EditEmployee( Employee employee)
     {
+        connection = ConnectionDB.getConnection();
         
-        
+        try
+        {
+            message = employeeDAO.EditEmployee(connection, employee);
+            //connection.rollback();
+        }
+        catch (Exception e)
+        {
+            message = message + " " + e.getMessage();
+        }
+        finally
+        {
+             try
+            {
+                if (connection != null)
+                {
+                    connection.close();
+                }
+            }
+            catch (Exception e)
+            {
+                message = message + "  " + e.getMessage();
+            }
+        }
+               
         return message;
     }
      
       public  String DeleteEmployee( int id)
     {
+        connection = ConnectionDB.getConnection();
         
-        
+        try
+        {
+            message = employeeDAO.DeleteEmployee(connection, id);
+            //connection.rollback();
+        }
+        catch (Exception e)
+        {
+            message = message + " " + e.getMessage();
+        }
+        finally
+        {
+             try
+            {
+                if (connection != null)
+                {
+                    connection.close();
+                }
+            }
+            catch (Exception e)
+            {
+                message = message + "  " + e.getMessage();
+            }
+        }
+               
         return message;
     }
       
