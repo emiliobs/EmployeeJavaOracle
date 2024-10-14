@@ -1,10 +1,14 @@
 package com.employee.uk.dao;
 
 import com.employee.uk.entity.Employee;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -100,7 +104,37 @@ public class EmployeeDAO
 
     public void EmployeeList(Connection connection, JTable table)
     {
+         DefaultTableModel model;
+         String [] columns = {"ID","Name","Last Name","Document","Marital Status","Gender","Age"};
+         model = new DefaultTableModel(null, columns);
+         
+         String sql = "SELECT * FROM Employee  ORDER BY Employee_Id";
+         
+         String [] rows = new String[7];
+         Statement  statement = null;
+         ResultSet resultSet = null;
+         
+         try
+        {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
             
+            while (resultSet.next())
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    rows[i] = resultSet.getString(i+1);
+                }                            
+            
+                model.addRow(rows);
+            }
+            table.setModel(model);
+                      
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Cannot List Data.");
+        }
     }
 
 }

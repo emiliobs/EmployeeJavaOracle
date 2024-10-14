@@ -13,3 +13,4 @@ CREATE TABLE Employee
 ALTER TABLE Employee ADD CONSTRAINT Employee_Id_PK PRIMARY KEY(Employee_Id);
 
 SELECT * FROM employee;
+SELECT * FROM employee ORDER BY employee_id;

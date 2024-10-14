@@ -1,6 +1,9 @@
 
 package com.employee.uk.view;
 
+import com.employee.uk.bo.EmployeeBO;
+import com.employee.uk.dao.EmployeeDAO;
+
 /**
  *
  * @author Emilio
@@ -8,12 +11,20 @@ package com.employee.uk.view;
 public class FrmEmployee extends javax.swing.JFrame
 {
 
-    /**
-     * Creates new form FrmEmployee
-     */
+    private  EmployeeBO employeeBO = new EmployeeBO();
+   
     public FrmEmployee()
     {
         initComponents();
+        
+     
+               
+        ListEmployee();
+    }
+    
+    public  void ListEmployee()
+    {
+        employeeBO.EmployeeList(tblEmployee);
     }
 
     /**
@@ -73,7 +84,7 @@ public class FrmEmployee extends javax.swing.JFrame
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 51, 0));
         jLabel2.setText("EMPLOYEE FORM");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, -1));
 
         Name.setBackground(new java.awt.Color(204, 51, 0));
         Name.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -150,19 +161,19 @@ public class FrmEmployee extends javax.swing.JFrame
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String []
             {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblEmployee);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 510, 360));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 560, 360));
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 51, 0));
@@ -174,7 +185,7 @@ public class FrmEmployee extends javax.swing.JFrame
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 550, 180, -1));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 180, -1));
 
         btnAdd1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnAdd1.setForeground(new java.awt.Color(255, 51, 0));
@@ -198,7 +209,7 @@ public class FrmEmployee extends javax.swing.JFrame
                 btnEdit1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEdit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 180, -1));
+        jPanel1.add(btnEdit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 550, 180, -1));
 
         btnDelete1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnDelete1.setForeground(new java.awt.Color(255, 51, 0));
@@ -210,7 +221,7 @@ public class FrmEmployee extends javax.swing.JFrame
                 btnDelete1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 180, -1));
+        jPanel1.add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 180, -1));
 
         btnClean1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnClean1.setForeground(new java.awt.Color(255, 51, 0));
@@ -222,11 +233,12 @@ public class FrmEmployee extends javax.swing.JFrame
                 btnClean1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnClean1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 180, -1));
+        jPanel1.add(btnClean1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 180, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 600));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnExitActionPerformed
@@ -298,6 +310,7 @@ public class FrmEmployee extends javax.swing.JFrame
         {
             public void run()
             {
+                
                 new FrmEmployee().setVisible(true);
             }
         });

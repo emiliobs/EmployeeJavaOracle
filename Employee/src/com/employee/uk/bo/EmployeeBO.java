@@ -4,6 +4,10 @@ import com.employee.uk.dao.EmployeeDAO;
 import com.employee.uk.db.ConnectionDB;
 import com.employee.uk.entity.Employee;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
 
 /**
  *
@@ -116,11 +120,20 @@ public class EmployeeBO
         return message;
     }
       
-       public  void EmployeeList()
+       public  void EmployeeList(JTable table)
     {
-        
-        
-        
+        connection = ConnectionDB.getConnection();
+        employeeDAO.EmployeeList(connection, table);
+               
+       try
+      {
+            
+        connection.close();
+       }
+       catch (SQLException ex)
+       {
+           System.out.println("Error: " + ex.getMessage());
+       }
     }
     
 }
