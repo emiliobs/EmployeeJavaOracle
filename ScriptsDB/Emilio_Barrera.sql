@@ -11,15 +11,5 @@ CREATE TABLE Employee
 );
 
 ALTER TABLE Employee ADD CONSTRAINT Employee_Id_PK PRIMARY KEY(Employee_Id);
-INSERT INTO  Employee
-(
- Employee_Id,
- name,
- last_name,
- document_number,
- marital_status,
- gender,
- age
-) 
-VALUES();
+
 SELECT * FROM employee;

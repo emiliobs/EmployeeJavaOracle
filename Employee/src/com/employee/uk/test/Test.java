@@ -26,21 +26,35 @@ public class Test
       
        employee.setName("Deal");
      employee.setLast_Name("Pool");
-     employee.setDocument_Number("1234578");
+     employee.setDocument_Number("123457");
      employee.setMarital_Status('M');
      employee.setGender('F');
      employee.setAge(55);
      
      message = employeeBO.AddEmployee(employee);
-      System.out.println(message);
+      System.out.println(message);    
      
+  }
+  
+  public  void  Edit()
+  {
+      employee.setEmployee_Id(2);
+      employee.setName("Deal Antonio");
+     employee.setLast_Name("Pool Barrera");
+     employee.setDocument_Number("123457");
+     employee.setMarital_Status('M');
+     employee.setGender('F');
+     employee.setAge(55);
      
+     message = employeeBO.EditEmployee(employee);
+      System.out.println(message);    
   }
   
     public static void main(String[] args)
     {
         Test test = new Test();
-        test.Insert();
+       // test.Insert();
+       test.Edit();
     }
  
    
