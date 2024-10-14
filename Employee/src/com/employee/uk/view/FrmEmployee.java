@@ -23,6 +23,10 @@ public class FrmEmployee extends javax.swing.JFrame
         
         ListEmployee();
         idMax();
+        
+        setTitle("EMPLOYEE FORM");
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -59,6 +63,7 @@ public class FrmEmployee extends javax.swing.JFrame
         btnClean = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
