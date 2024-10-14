@@ -224,7 +224,7 @@ public class FrmEmployee extends javax.swing.JFrame
         });
         jPanel1.add(btnClean1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 180, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

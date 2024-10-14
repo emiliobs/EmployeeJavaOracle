@@ -1,0 +1,25 @@
+CREATE TABLE Employee 
+(
+    Employee_Id number(10) not null,
+    Name VARCHAR2(50) not null,
+    Last_Name VARCHAR2(50) not null,
+    Document_Number VARCHAR2(10) not null,
+    Marital_Status VARCHAR2(1) not null,
+    Gender VARCHAR2(1) not null,
+    Age number(3) not null
+        
+);
+
+ALTER TABLE Employee ADD CONSTRAINT Employee_Id_PK PRIMARY KEY(Employee_Id);
+INSERT INTO  Employee
+(
+ Employee_Id,
+ name,
+ last_name,
+ document_number,
+ marital_status,
+ gender,
+ age
+) 
+VALUES();
+SELECT * FROM employee;
